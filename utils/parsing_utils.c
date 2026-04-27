@@ -6,22 +6,43 @@
 /*   By: chguerre <chguerre@student.lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 17:10:38 by chguerre          #+#    #+#             */
-/*   Updated: 2026/04/27 21:08:57 by chguerre         ###   ########.fr       */
+/*   Updated: 2026/04/27 21:54:44 by chguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void add_to_tail(t_node *node, t_master *master_s)
+int is_duplicate(int num, t_master *master_s)
 {
 	t_node *current_node;
+	current_node = master_s->head_a;
+	while (current_node)
+	{
+		if(current_node->contain == num)
+			return(1);
+		current_node = current_node->next;
+	}
+	return (0);
+}
+
+void add_to_tail(t_node *node, t_master *master_s)
+{
+	if(!node)
+		return;
 	if(master_s->tail_a == NULL)
 	{
-		master_s->tail_a->prev= current_node->prev;
-		master_s->tail_a->next = current_node->next;
-		master_s->tail_a = current_node;
+		master_s->head_a = node;
+		master_s->tail_a = node;
+		master_s->qty_in_a = 1;
 	}
 	else
+	{
+		node->prev = master_s->tail_a;
+		node->next = NULL;
+		master_s->tail_a->next = node;
+		master_s->tail_a = node;
+		master_s->qty_in_a += 1;
+	}
 
 }
 
