@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chguerre <chguerre@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: chguerre <chguerre@student.lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 11:32:03 by chguerre          #+#    #+#             */
-/*   Updated: 2026/04/27 17:37:58 by chguerre         ###   ########.fr       */
+/*   Updated: 2026/04/27 21:05:28 by chguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	process_string(char *str_num, t_master *master_s)
 
 	error = 0;
 	(void)master_s;
-	num = ft_strtol(str_num, error);
+	num = ft_strtol(str_num, &error);
 	/*
 	1-Procesar cadena con ft_strol() necesito crearla
 	2-verificar si tiene duplicados dentro de la fila

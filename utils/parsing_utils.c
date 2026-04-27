@@ -6,7 +6,7 @@
 /*   By: chguerre <chguerre@student.lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 17:10:38 by chguerre          #+#    #+#             */
-/*   Updated: 2026/04/27 20:55:52 by chguerre         ###   ########.fr       */
+/*   Updated: 2026/04/27 21:08:57 by chguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ long	ft_strtol(char *str, int *error)
 	sign = 1;
 	i = 0;
 	nbr_long = 0;
+	if (str[i] == '\0')
+		return(*error = 1);
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
