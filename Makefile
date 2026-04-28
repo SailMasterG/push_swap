@@ -4,6 +4,7 @@ CFLAGS = -Werror -Wextra -Wall -I$(LIBFT_INC) -Iincl
 
 SRC_DIR = src
 SRCS = $(SRC_DIR)/main.c \
+	$(SRC_DIR)/swap_functions.c
 
 
 OBJ_DIR = objs

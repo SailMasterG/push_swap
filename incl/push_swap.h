@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/28 13:21:23 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/28 13:21:31 by chguerr          ###   ########.ch       */
+/*   Created: 2026/04/28 18:44:29 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/28 18:44:29 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,8 @@ long	ft_strtol(char *str, int *error);
 void	free_all_stacks(t_manager *stack);
 void	ft_free_node_list(t_node *head);
 
-#endif // !PUSH_SWAP_H
+//**Operations
+void	sa(t_manager *stack);
+void	sb(t_manager *stack);
+void	ss(t_manager *stack);
+#endif // PUSH_SWAP_H
