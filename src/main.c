@@ -3,101 +3,115 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chguerre <chguerre@student.lausanne.ch>    +#+  +:+       +#+        */
+/*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/27 11:32:03 by chguerre          #+#    #+#             */
-/*   Updated: 2026/04/27 21:12:43 by chguerre         ###   ########.fr       */
+/*   Created: 2026/04/28 13:22:40 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/28 13:22:40 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_list(t_node *nodo_head)
+{
+	t_node	*nodo_actual;
+
+	nodo_actual = nodo_head;
+	while (nodo_actual != NULL)
+	{
+		ft_printf("Num: %d.\n", nodo_actual->contain);
+		nodo_actual = nodo_actual->next;
+	}
+}
+
+int	main(int argc, char *argv[])
+{
+	t_manager	stack;
+
+	if (argc < 2)
+		return (1);
+	ft_bzero(&stack, sizeof(t_manager));
+	if (parsing_args(argc, argv, &stack) == 0)
+	{
+		free_all_stacks(&stack);
+		return (1);
+	}
+	print_list(stack.head_a);
+	free_all_stacks(&stack);
+	return (0);
+}
+
+int	process_string(char *str_num, t_manager *stack)
+{
+	long	num;
+	int		error;
+	t_node	*new_node;
+
+	error = 0;
+	num = ft_strtol(str_num, &error);
+	if (error == 1)
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	if (is_duplicate(num, stack))
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	new_node = create_node(num);
+	if (!new_node)
+		return (0);
+	add_to_tail(new_node, stack);
+	return (1);
+}
+
+static int	iterate_tokens(char **tokens, t_manager *stack)
+{
+	int	i;
+
+	i = 0;
+	while (tokens[i])
+	{
+		if (!process_string(tokens[i], stack))
+		{
+			free_split(tokens);
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
 /**
  * @brief Esta funcion se encarga de validar los argumentos,
  * y de crear los nodos de la pila (a);
  *
  * @param argc
  * @param argv
- * @param master_stack
+ * @param stacktack
  * @return int
  */
-int	parsing_num(int argc, char *argv[], t_master *master_s);
-
-int	main(int argc, char *argv[])
+int	parsing_args(int argc, char *argv[], t_manager *stack)
 {
-	t_master	master_s;
-
-	if (argc < 2)
-		return (1);
-	ft_bzero(&master_s, sizeof(t_master));
-	if (parsing_num(argc, argv, &master_s) == 0)
-		return (1);
-	return (0);
-}
-
-int	free_split(char **split_v)
-{
-	int	i;
-
-	i = 0;
-	if (split_v == NULL)
-		return (0);
-	while (split_v[i] != NULL)
-	{
-		free(split_v[i]);
-		i++;
-	}
-	free(split_v);
-	split_v = NULL;
-	return (1);
-}
-
-int	process_string(char *str_num, t_master *master_s)
-{
-	long	num;
-	int		error;
-
-	error = 0;
-	(void)master_s;
-	num = ft_strtol(str_num, &error);
-	/*
-	1-Procesar cadena con ft_strol() necesito crearla
-	2-verificar si tiene duplicados dentro de la fila
-	3-Creamos nodo + añadirlo a Tail A
-	retornar 0 / 1.
-	*/
-	return (0);
-
-}
-
-int	parsing_num(int argc, char *argv[], t_master *master_s)
-{
-	int		j;
 	int		i;
-	char	**str_numero;
+	char	**tokens;
 
 	i = 1;
-	str_numero = NULL;
+	tokens = NULL;
 	while (i < argc)
 	{
-		str_numero = ft_split(argv[i], ' ');
-		if (!str_numero || !str_numero[0])
+		tokens = ft_split(argv[i], ' ');
+		if (!tokens || !tokens[0])
 		{
-			free_split(str_numero);
+			free_split(tokens);
+			write(2, "Error\n", 6);
 			return (0);
 		}
-		j = 0;
-		while (str_numero[j])
-		{
-			if (!process_string(str_numero[j], master_s))
-			{
-				free_split(str_numero);
-				//Liberar Pila (Necesito crear Funcion)
-				return (0);
-			}
-			j++;
-		}
+		if (!iterate_tokens(tokens, stack))
+			return (0);
 		i++;
-		free_split(str_numero);
+		free_split(tokens);
 	}
 	return (1);
 }
