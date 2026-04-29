@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 09:16:40 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/29 09:17:10 by chguerr          ###   ########.ch       */
+/*   Created: 2026/04/29 16:11:13 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/29 16:11:13 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,7 @@ void	ss(t_manager *stack);
 
 void	pb(t_manager *stack);
 void	pa(t_manager *stack);
+void	ra(t_manager *stack);
+void	rb(t_manager *stack);
+
 #endif // PUSH_SWAP_H
