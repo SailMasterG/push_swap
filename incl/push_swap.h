@@ -49,6 +49,6 @@ void	sa(t_manager *stack);
 void	sb(t_manager *stack);
 void	ss(t_manager *stack);
 
-void pb(t_manager *stack);
-void pa(t_manager *stack);
+void	pb(t_manager *stack);
+void	pa(t_manager *stack);
 #endif // PUSH_SWAP_H
