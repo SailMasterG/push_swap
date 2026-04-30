@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 16:53:33 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/30 16:53:40 by chguerr          ###   ########.ch       */
+/*   Created: 2026/05/01 00:00:26 by chguerr           #+#    #+#             */
+/*   Updated: 2026/05/01 00:00:34 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	sort_three_numbers(t_manager *stack)
 	int	next;
 	int	tail;
 
+	if (stack->qty_in_a != 3)
+		return (0);
 	head = stack->head_a->contain;
 	next = stack->head_a->next->contain;
 	tail = stack->tail_a->contain;
-	if (stack->qty_in_a != 3)
-		return (0);
 	sel_mov(stack, head, next, tail);
 	return (1);
 }

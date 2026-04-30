@@ -5,12 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 21:48:36 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/30 21:48:36 by chguerr          ###   ########.ch       */
+/*   Created: 2026/04/30 23:40:59 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/30 23:59:50 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	is_sorted(t_manager *stack)
+{
+	t_node	*temp;
+
+	temp = stack->head_a;
+	while (temp->next != NULL)
+	{
+		if (temp->contain > temp->next->contain)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+static void	sort_elements(t_manager *stack)
+{
+	if (stack->qty_in_a == 2)
+	{
+		if (stack->head_a->contain > stack->tail_a->contain)
+			sa(stack);
+	}
+	else if (stack->qty_in_a >= 4)
+	{
+		radix_sort(stack);
+	}
+	else
+		sort_three_numbers(stack);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -24,12 +53,10 @@ int	main(int argc, char *argv[])
 		free_all_stacks(&stack);
 		return (1);
 	}
-	if (stack.qty_in_a >=4)
+	if (!is_sorted(&stack))
 	{
-		radix_sort(&stack);
+		sort_elements(&stack);
 	}
-	else
-		sort_three_numbers(&stack);
 	free_all_stacks(&stack);
 	return (0);
 }
