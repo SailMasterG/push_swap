@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 11:13:06 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/30 11:13:52 by chguerr          ###   ########.ch       */
+/*   Created: 2026/04/30 21:01:56 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/30 21:01:59 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 	int				contain;
+	int				index;
 }	t_node;
 
 typedef struct s_manager
@@ -57,4 +58,8 @@ void	rb(t_manager *stack);
 void	rra(t_manager *stack);
 void	rrb(t_manager *stack);
 void	rrr(t_manager *stack);
+
+int		sort_three_numbers(t_manager *stack);
+void	radix_sort(t_manager *stack);
+void	parsing_index(t_manager *stack);
 #endif // PUSH_SWAP_H

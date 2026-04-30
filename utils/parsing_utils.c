@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/28 13:16:26 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/28 13:19:07 by chguerr          ###   ########.ch       */
+/*   Created: 2026/04/30 16:53:27 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/30 16:53:27 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ t_node	*create_node(int num)
 	if (new_node == NULL)
 		return (NULL);
 	new_node->contain = num;
+	new_node->index = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);

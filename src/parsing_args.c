@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parsing_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 11:16:22 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/30 11:17:52 by chguerr          ###   ########.ch       */
+/*   Created: 2026/04/30 17:05:22 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/30 17:05:22 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,6 @@ int	parsing_args(int argc, char *argv[], t_manager *stack)
 		i++;
 		free_split(tokens);
 	}
+	parsing_index(stack);
 	return (1);
 }

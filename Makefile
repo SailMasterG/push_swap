@@ -4,7 +4,14 @@ CFLAGS = -Werror -Wextra -Wall -I$(LIBFT_INC) -Iincl
 
 SRC_DIR = src
 SRCS = $(SRC_DIR)/main.c \
-	$(SRC_DIR)/swap_functions.c
+	$(SRC_DIR)/swap_functions.c \
+	$(SRC_DIR)/push_functions.c \
+	$(SRC_DIR)/rotate_functions.c \
+	$(SRC_DIR)/reverse_rotate_functions.c \
+	$(SRC_DIR)/parsing_args.c \
+	$(SRC_DIR)/sort_three_numbers.c \
+	$(SRC_DIR)/radix_sort.c 
+
 
 
 OBJ_DIR = objs
@@ -12,7 +19,9 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 UTILS_DIR = utils
 UTILS = $(UTILS_DIR)/cleaner.c \
-	$(UTILS_DIR)/parsing_utils.c
+	$(UTILS_DIR)/parsing_utils.c \
+	$(UTILS_DIR)/print_list.c \
+	$(UTILS_DIR)/indexing.c
 UTILS_OBJ	= $(addprefix $(OBJ_DIR)/, $(notdir $(UTILS:.c=.o)))
 
 
