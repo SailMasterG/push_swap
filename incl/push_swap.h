@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 16:11:13 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/29 16:11:13 by chguerr          ###   ########.ch       */
+/*   Created: 2026/04/30 11:13:06 by chguerr           #+#    #+#             */
+/*   Updated: 2026/04/30 11:13:52 by chguerr          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	add_to_tail(t_node *node, t_manager *stack);
 long	ft_strtol(char *str, int *error);
 void	free_all_stacks(t_manager *stack);
 void	ft_free_node_list(t_node *head);
-
+void	print_list(t_node *nodo_head);
 //**Operations
 void	sa(t_manager *stack);
 void	sb(t_manager *stack);
@@ -51,7 +51,10 @@ void	ss(t_manager *stack);
 
 void	pb(t_manager *stack);
 void	pa(t_manager *stack);
+
 void	ra(t_manager *stack);
 void	rb(t_manager *stack);
-
+void	rra(t_manager *stack);
+void	rrb(t_manager *stack);
+void	rrr(t_manager *stack);
 #endif // PUSH_SWAP_H
