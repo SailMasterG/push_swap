@@ -31,7 +31,7 @@ void	radix_sort(t_manager *stack)
 	max_bits = 0;
 	while ((1 << max_bits) <= max_index)
 		max_bits++;
-	while (bit <= max_bits)
+	while (bit < max_bits)
 	{
 		size = stack->qty_in_a - 1;
 		while (size >= 0)
