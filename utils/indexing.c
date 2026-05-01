@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: chguerre <chguerre@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 16:53:46 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/30 16:53:46 by chguerr          ###   ########.ch       */
+/*   Updated: 2026/05/01 11:04:51 by chguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	index_generator(t_node *head, int num)
 {
-	t_node *temp;
-	int index;
+	t_node	*temp;
+	int		index;
 
 	index = 0;
 	temp = head;
@@ -25,12 +25,12 @@ static int	index_generator(t_node *head, int num)
 			index++;
 		temp = temp->next;
 	}
-	return (index);    
+	return (index);
 }
 
-void parsing_index(t_manager *stack)
+void	parsing_index(t_manager *stack)
 {
-	t_node *current;
+	t_node	*current;
 
 	current = stack->head_a;
 	while (current != NULL)
@@ -38,5 +38,4 @@ void parsing_index(t_manager *stack)
 		current->index = index_generator(stack->head_a, current->contain);
 		current = current->next;
 	}
-
 }

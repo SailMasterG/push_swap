@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chguerr <chguerr@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: chguerre <chguerre@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 17:07:33 by chguerr           #+#    #+#             */
-/*   Updated: 2026/04/30 17:07:33 by chguerr          ###   ########.ch       */
+/*   Updated: 2026/05/01 11:05:40 by chguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	print_list(t_node *nodo_head)
 	nodo_actual = nodo_head;
 	while (nodo_actual != NULL)
 	{
-		ft_printf("Index:%d, Num: %d.\n",nodo_actual->index, nodo_actual->contain);
+		ft_printf("Index:%d, Num: %d.\n", nodo_actual->index,
+			nodo_actual->contain);
 		nodo_actual = nodo_actual->next;
 	}
 }
